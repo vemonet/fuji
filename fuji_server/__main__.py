@@ -29,6 +29,8 @@ import os
 from logging.config import fileConfig
 import connexion
 from werkzeug.middleware.proxy_fix import ProxyFix
+from flask_cors import CORS
+from flask_reverse_proxy_fix.middleware import ReverseProxyPrefixFix
 
 from fuji_server import encoder
 from fuji_server.helper.preprocessor import Preprocessor
@@ -93,7 +95,9 @@ def main():
         }
 
     app.add_api(API_YAML, arguments=api_args, validate_responses=True)
-    app.app.wsgi_app = ProxyFix(app.app.wsgi_app)
+    CORS(app.app)
+    ReverseProxyPrefixFix(app.app)
+    # app.app.wsgi_app = ProxyFix(app.app.wsgi_app)
     app.run(host=config['SERVICE']['service_host'], port=int(config['SERVICE']['service_port']))
 
 if __name__ == '__main__':
