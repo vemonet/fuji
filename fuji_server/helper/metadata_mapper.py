@@ -25,7 +25,8 @@ from enum import Enum
 class Mapper(Enum):
     ## ============================ CONFIGURATIONS ============================ ##
     # List of PIDS e.g. those listed in datacite schema
-    VALID_PIDS = ['ark','arxiv','bioproject','biosample','doi', 'ensembl','genome','gnd','handle','lsid','pmid','pmcid','purl', 'refseq','sra','uniprot','urn']
+    VALID_PIDS = ['ark','arxiv','bioproject','biosample','doi', 'ensembl','genome','gnd','handle','lsid','pmid','pmcid','purl', 'refseq','sra','uniprot','urn',
+                    'w3id']
 
     #identifiers.org pattern
     #TODO: check if this is needed.. if so ..complete and add check to FAIRcheck

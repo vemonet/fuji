@@ -35,6 +35,7 @@ def assess_by_id(body):  # noqa: E501
     """assess_by_id
 
     Evaluate FAIRness of a data object based on its identifier # noqa: E501
+    Main function called by the /evaluate operation
 
     :param body: 
     :type body: dict | bytes
